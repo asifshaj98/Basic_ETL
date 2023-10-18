@@ -47,3 +47,8 @@ def transform(data: dict) -> pd.DataFrame:
 
 
 # %%
+def laod(df:pd.DataFrame) -> None:
+    """ Loads the data into a sqllite database"""
+    db = create_engine('sqlite:///my_lite_store.db')
+    df.to_sql('cal_uni', db, if_exists='replace')
+# %%
